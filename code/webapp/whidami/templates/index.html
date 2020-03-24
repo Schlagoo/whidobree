@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="{% static 'main.js' %}"></script>
+    <link rel="icon" type="image/png" href="/media/icon.svg">
+    <title>Which dog breed are you?</title>
+</head>
+<body>
+    <header class="flex-row">
+        <a href="/">
+            <img src="/media/icon.svg" alt="icon" class="icon">
+        </a>
+        <p class="name">whidobree</p>
+    </header>
+    <section class="container flex-column center" id="intro">
+        <h1>Which dog breed are you?</h1>
+        <p>Just upload a picture of yourself, the artificial intelligence will tell you which dog breed suits you best! It recognizes features of your face and compares it with unique features of 65 different dog breeds. You can start by selecting an image of your face.</p>
+        <form method="POST" enctype="multipart/form-data" class="flex-row center">
+            {% csrf_token %}
+            {{ form }}
+            <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+            <label for="file" class="flex-row align-center">
+                <i class="fas fa-upload"></i>
+                <p>Select file</p>
+            </label>
+            <button type="submit"><p>Start</p></button>
+        </form>
+    </section>
+    <div class="overlay" id="overlay"></div>
+    <div class="cookies" id="cookie-message">
+        <p>We use cookies to enhance your experience. To comply with the new privacy policy, we must ask you for your consent to use cookies. <a href="{% url 'privacy' %}">Further Informations</a></p>
+        <button onclick="close_overlay()"><p>Accept</p></button>
+    </div>
+    <footer>
+        <div class="line"></div>
+        <div class="flex-row flex-between" id="footer">
+            <div class="flex-column " id="footer-links">
+                <a href="{% url 'about' %}"><p class="link" id="about">About</p></a>
+                <p>&emsp;</p>
+            </div>
+            <div class="flex-column " id="footer-links">
+                <a href="{% url 'imprint' %}"><p class="link" id="imprint">Imprint</p></a>
+                <a href="{% url 'privacy' %}"><p class="link" id="privacy">Privacy policy</p></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

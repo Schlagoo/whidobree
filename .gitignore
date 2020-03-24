@@ -1,0 +1,4 @@
+data/
+code/webapp/media/breeds
+code/webapp/webapp_env
+__pycache__

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="/media/icon.svg">
+    <title>Which dog breed are you?</title>
+</head>
+<body>
+    <header class="flex-row">
+        <a href="/">
+            <img src="/media/icon.svg" alt="icon" class="icon">
+        </a>
+        <p class="name">whidobree</p>
+    </header>
+    <section class="container flex-column center" id="intro">
+        <h1 style="color: #f2f2f2; font-weight: 400">Imprint</h1>
+        <h2>Data according to &sect; 5 TMG</h2>
+        <p class="text">Pascal Schlaak<br />
+            Egaustraße 9<br />
+            73432 Aalen
+        </p>
+        <h2>Contact</h2>
+        <p class="text">Telephone: +491632599606<br />
+            E-mail: schlaak.pascal@gmail.com
+        </p>
+        <h2>Liability for content </h2>
+        <p class="text">As a service provider, we are responsible for our own content on these pages in accordance with the general laws
+            pursuant to &sect; 7 para.1 TMG. According to &sect;&sect; 8 to 10 TMG, however, we as a service provider are
+            not obliged to monitor transmitted or stored third-party information or to search for circumstances that
+            indicate illegal activity.
+        </p>
+        <p class="text"> Obligations to remove or block the use of information according to the general laws remain unaffected. A
+            liability in this respect is only possible from the time of knowledge of a concrete violation of the law. As
+            soon as we become aware of such legal infringements, we will remove these contents immediately.
+        </p>
+        <h2>Liability for links</h2>
+        <p class="text">Our offer contains links to external websites of third parties over whose contents we have no influence.
+            Therefore, we cannot accept any liability for these external contents. The respective provider or operator of
+            the pages is always responsible for the contents of the linked pages. The linked pages were checked for possible
+            legal violations at the time of linking. Illegal contents were not recognisable at the time of linking.
+        </p>
+        <p class="text">A permanent control of the contents of the linked pages is, however, not reasonable without concrete evidence of
+            an infringement. If we become aware of any legal infringements, we will remove such links immediately.
+        </p>
+        <h2>Copyright</h2>
+        <p class="text">The content and works on these pages created by the site operators are subject to German copyright law. The
+            reproduction, processing, distribution and any kind of exploitation outside the limits of copyright law require
+            the written consent of the respective author or creator. Downloads and copies of this website are only permitted
+            for private, non-commercial use. If the contents of this website have not been created by the operator, the
+            copyrights of third parties are respected. In particular, contents of third parties are marked as such. Should
+            you nevertheless become aware of a copyright infringement, please inform us accordingly. As soon as we become
+            aware of any legal infringements, we will remove such content immediately.
+        </p>
+        <a href="https://www.e-recht24.de/impressum-generator.html">
+            <p class="text" style="color: #268CF5">e-recht24</p>
+        </a>
+    </section>
+    <footer>
+        <div class="line"></div>
+        <div class="flex-row flex-between" id="footer">
+            <div class="flex-column " id="footer-links">
+                <a href="{% url 'about' %}"><p class="link" id="about">About</p></a>
+                <p>&emsp;</p>
+            </div>
+            <div class="flex-column " id="footer-links">
+                <a href="{% url 'imprint' %}"><p class="link" id="imprint">Imprint</p></a>
+                <a href="{% url 'privacy' %}"><p class="link" id="privacy">Privacy policy</p></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

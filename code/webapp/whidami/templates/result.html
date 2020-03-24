@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="/media/icon.svg">
+    <title>Which dog breed are you?</title>
+</head>
+<body>
+    <header class="flex-row">
+        <a href="/">
+            <img src="/media/icon.svg" alt="icon" class="icon">
+        </a>
+        <p class="name">whidobree</p>
+    </header>
+    <section class="container grid-2x" id="result">
+        <div class="flex-column center" id="description">
+            <h1>With a <span style="color: #268CF5;">{{ probability }}%</span> probability you are a <span style="color: #268CF5;">{{ breed }}</span>!</h1>
+            <img src="media/breeds/{{ image_path_dog }}" alt="image dog">
+            <p>There are definitely some similarities *lol*. Not satisfied with your current result? Choose another picture!</p>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" name="back" value="back"><p>Try again</p></button>
+            </form>
+        </div>
+        <div class="flex-column center" id="images">
+            <img src="media/files/{{ image_path_human }}" alt="image human" style="transform: translate(10%, -10%);">
+            <img src="media/breeds/{{ image_path_dog }}" alt="image dog">
+        </div>
+    </section>
+    <footer>
+        <div class="line"></div>
+        <div class="flex-row flex-between" id="footer">
+            <div class="flex-column " id="footer-links">
+                <a href="{% url 'about' %}"><p class="link" id="about">About</p></a>
+                <p>&emsp;</p>
+            </div>
+            <div class="flex-column " id="footer-links">
+                <a href="{% url 'imprint' %}"><p class="link" id="imprint">Imprint</p></a>
+                <a href="{% url 'privacy' %}"><p class="link" id="privacy">Privacy policy</p></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
